@@ -7,6 +7,12 @@ from rest_framework import status
 from .models import Customer, Account, Transaction
 from .serializers import CustomerSerializer, AccountSerializer, TransactionSerializer
 from decimal import Decimal
+
+
+from django.http import JsonResponse
+
+def root_view(request):
+    return JsonResponse({"message": "Bank API is running"})
 # 1. Create Customer
 @api_view(['POST'])
 def create_customer(request):
